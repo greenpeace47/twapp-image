@@ -1,0 +1,23 @@
+<%= form_with(model: @tweet, local: true ,url: choose_new_or_edit) do |form| %>
+  <% if @tweet.errors.any? %>
+    <div id="error_explanation" class="errortext">
+      <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>　</p>
+
+    <%= form.label "本文" %>
+    <%= form.text_field :content %>
+  <p>　</p>
+  <%= form.submit "投稿する", :class => "submitbutton" %>
+  <p>　</p>
+<% end %>
+
+

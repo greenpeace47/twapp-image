@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header clearfix">
+          <nav>
+              <ul class="top_menu clearfix">
+                <li><%= link_to "ホーム", tweets_path %></li>
+                <li><%= link_to "新規投稿", new_tweet_path %></li>
+              </ul>
+          </nav>
+      </header>
+      <%= image_tag 'TOP.png', :class => "image_area" %>
+      <div class="wrapper clearfix">
+        <aside class="side_menu">
+          <nav>
+            <ul>
+              <li><%= link_to "ホーム", tweets_path %></li>
+              <li><%= link_to "新規投稿", new_tweet_path %></li>
+            </ul>
+          </nav>
+        </aside>
+        <article class="content">
+          <%= yield %>
+        </article>
+      </div>
+
+
+      <footer class="footer">
+        <p>Created by Hisashi Sawada - PHASE2 Application</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+
+
