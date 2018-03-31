@@ -1,181 +1,71 @@
-/*  */
-html {
-  height: 100%;
-  font-size: 62.5%;
+.navbar-default{
+  background-color: #00ccff;
+  color: white;
 }
 
-body{
-  height: 100%;
+.navbar-default .navbar-nav > li > a {
+ color: white;
 }
 
-ul{
-  margin: 0;
-  padding: 0;
+.navbar-default .navbar-brand {
+ color: white;
 }
 
-li{
-  list-style: none;
-}
-
-/* class */
-.container{
-  width: 980px;
-  margin: 0 auto;
+.jumbotron {
   position: relative;
-  min-height: 100%;
+  background: url("top.jpg") center center;
+  background-size: cover;
 }
 
-.header{
-  background-color: #00ccff;
-  height: 50px;
-  font-size: 1.5rem;
-}
-
-.logo_image{
-    width: 110px;
-    float: left;
-    margin: 0;
-}
-
-.top_menu li{
-  float: left;
-  width: auto;
-}
-
-.top_menu li a{
-  color: #fff;
-  text-decoration: none;
+.jumbotron::before {
+  content:"";
   display: block;
-  padding: 15px;
+  padding-top: 40%; /*.jumbotronのwidthに対して高さ50%に保つ*/
 }
 
-.top_menu li a:hover{
-  text-decoration: underline;
-}
-
-.clearfix:after{
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.image_area{
-  width: 100%;
-}
-
-.side_menu{
-  width: 300px;
-  float: left;
-}
-
-.wrapper{
-  margin-top: 10px;
-  padding-bottom: 100px;
-}
-
-.side_menu li{
-  background-color: #00ccff;
-  height: 6rem;
-  margin-bottom: 10px;
-}
-
-.side_menu li a{
-  font-size:2rem;
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 2rem;
-}
-
-.side_menu li:hover{
-  opacity: 0.6;
-}
-
-.banner img{
-  width: 100%;
-  display: table;
-}
-
-.bann
-er{
-  margin-top: 20px;
-}
-
-.banner_table{
-  width: 100%;
-  display: table;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.banner_table a{
-  display: table-cell;
-}
-
-.banner_table a:hover{
-  opacity: 0.6;
-}
-
-.banner:hover{
-  opacity: 0.6;
-}
-
-.content{
-  width: 660px;
-  margin-left:20px;
-  float: left;
-  font-size: 1.5rem;
-}
-
-.news{
-  height: 200px;
-  background-color: #FFFFFF;
-  padding: 20px;
-  overflow: scroll;
-  line-height: 1;
+.navbar-default .navbar-toggle .icon-bar{
+  background-color: white;
 }
 
 .footer{
   width: 100%;
-  height: 100px;
-  position: absolute;
+  text-align: center;
+  padding-top: 4%;
+  position: relative;
   bottom: 0;
   background-color: #4D4D4D;
+  color: white;
   display: table;
 }
 
-.footer p {
-  font-size: 1rem;
-  color: #fff;
-  text-align: center;
-  vertical-align: middle;
- display: table-cell;
+.footer p{
+  margin-bottom: 4%;
 }
 
-.side_menu .point{
-  background-color: #FCECEC;
+.panel-default{
+  border-color: #00ccff;
 }
 
-.side_menu .point a{
-  color: #4D4D4D;
+.panel-default .panel-heading{
+  color: white;
+  border-color: #00ccff;
+  background-color: #00ccff;
 }
 
-.editbutton{
-  background-color: #e0ffff;
+h1 {
+  font-size: calc(100% + 1.5vw)
+  /* font-size: 3vw; */
 }
 
-.deletebutton{
-  background-color: #ffc0cb;
+h2 {
+  font-size: calc(90% + 0.75vw)
+  /* font-size: 2vw; */
 }
 
-.submitbutton{
-  background-color: #e0ffff;
+.content td{
+  padding-left: 10px;
 }
 
-.backbutton{
-  background-color: #ffc0cb;
-}
-
-.errortext{
-  color: #ff0000
+p{
+  padding-left: 10px;
 }

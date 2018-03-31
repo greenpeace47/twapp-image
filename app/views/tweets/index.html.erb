@@ -1,19 +1,19 @@
-<h1>ツイート一覧</h1>
+<div class="panel-heading">
+  <h1>ツイート一覧</h1>
+</div>
 
-<p><%= notice %></p>
+<p class="alert alert-info"><%= notice %></p>
 
-<table class="news">
+<table class="content">
 
 <% @tweets.each do |tweet| %>
   <tr>
     <td><%= tweet.content %></td>
   </tr>
-
   <tr>
-    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, :class => "editbutton" %></td>
-    <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete,data: { confirm: '本当に削除していいですか？' }, :class => "deletebutton" %></td>
+    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, class: "btn btn-info" %></td>
+    <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete,data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></td>
   </tr>
-
   <tr>
     <td>　</td>
   </tr>

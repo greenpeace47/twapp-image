@@ -1,6 +1,6 @@
 <%= form_with(model: @tweet, local: true ,url: choose_new_or_edit) do |form| %>
   <% if @tweet.errors.any? %>
-    <div id="error_explanation" class="errortext">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
       <ul>
 
@@ -12,12 +12,9 @@
   <% end %>
 
   <p>　</p>
-
-    <%= form.label "本文" %>
-    <%= form.text_field :content %>
+  <p><%= form.label "本文" %>
+    <%= form.text_field :content %></p>
   <p>　</p>
-  <%= form.submit "投稿する", :class => "submitbutton" %>
+  <p><%= form.submit "投稿する", class: "btn btn-info" %></p>
   <p>　</p>
 <% end %>
-
-
