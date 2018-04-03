@@ -7,6 +7,11 @@
     <%= content_tag(:div, value, class: "alert alert-danger") %>
   <% end %>
 <% end %>
+<% if flash[:notice] %>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-info") %>
+  <% end %>
+<% end %>
 
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
