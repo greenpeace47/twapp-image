@@ -25,9 +25,18 @@
             </div>
             <div id="gnavi" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li><%= link_to "ホーム", tweets_path %></li>
+                <li><%= link_to "ツイート一覧", tweets_path %></li>
                 <li><%= link_to "新規投稿", new_tweet_path %></li>
               </ul>
+              <div class="navbar-right">
+                <% if logged_in? %>
+                  <p class="navbar-text">ようこそ <%= link_to current_user.name, user_path(current_user.id) %> さん。</p>
+                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></button>
+                <% else %>
+                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ユーザ登録", new_user_path %></button>
+                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログイン", new_session_path %></button>
+                <% end %>
+              </div>
             </div>
           </div>
         </nav>
@@ -47,16 +56,41 @@
                   <!-- 敢えてbodyを作らないことで、メニューを詰める -->
                   <!-- <div class="panel-body"> -->
                   <ul class="nav nav-pills nav-stacked">
+                      <% if logged_in? %>
+                        <li>
+                          <%= link_to user_path(current_user.id) do %>
+                            <i class="glyphicon glyphicon-user"></i> マイページ
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li>
+                          <%= link_to new_user_path do %>
+                            <i class="glyphicon glyphicon-ok-sign"></i> ユーザ登録
+                          <% end %>
+                        </li>
+                        <li>
+                          <%= link_to new_session_path do %>
+                            <i class="glyphicon glyphicon-log-in"></i> ログイン
+                          <% end %>
+                        </li>
+                      <% end %>
                       <li>
-                        <%= link_to tweets_path, target: "_blank" do %>
-                          <i class="glyphicon glyphicon-home"></i> ホーム
+                        <%= link_to tweets_path do %>
+                          <i class="glyphicon glyphicon-list-alt"></i> ツイート一覧
                         <% end %>
                       </li>
                       <li>
-                        <%= link_to new_tweet_path, target: "_blank" do %>
+                        <%= link_to new_tweet_path do %>
                           <i class="glyphicon glyphicon-pencil"></i> 新規投稿
                         <% end %>
                       </li>
+                      <% if logged_in? %>
+                        <li>
+                          <%= link_to session_path(current_user.id), method: :delete do %>
+                            <i class="glyphicon glyphicon-log-out"></i> ログアウト
+                          <% end %>
+                        </li>
+                      <% end %>
                   </ul>
                   <!-- </div> -->
               </div>
@@ -65,6 +99,9 @@
           <!-- center -->
           <article class="col-md-9">
             <div class="panel panel-default">
+              <!-- <% flash.each do |key, value| %>
+                <%= content_tag(:div, value, class: "#{key}") %>
+              <% end %> -->
               <%= yield %>
             </div>
           </article>

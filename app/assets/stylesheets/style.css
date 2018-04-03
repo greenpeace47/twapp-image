@@ -4,11 +4,19 @@
 }
 
 .navbar-default .navbar-nav > li > a {
- color: white;
+  color: white;
+}
+
+.navbar-default .navbar-text {
+  color: white;
+}
+
+.navbar-default .navbar-text a{
+  color: white;
 }
 
 .navbar-default .navbar-brand {
- color: white;
+  color: white;
 }
 
 .jumbotron {

@@ -1,0 +1,20 @@
+<div class="panel-heading">
+  <h3>ログイン</h3>
+</div>
+
+<% if flash[:danger] %>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-danger") %>
+  <% end %>
+<% end %>
+
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Log in" %>
+<% end %>

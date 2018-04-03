@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, only: [:new, :edit, :destroy]
 
   def index
     @tweets = Tweet.all
@@ -53,6 +54,12 @@ class TweetsController < ApplicationController
 
     def set_tweet
       @tweet = Tweet.find(params[:id])
+    end
+
+    def login_check
+      if !logged_in?
+        render new_session_path
+      end
     end
 
 end
