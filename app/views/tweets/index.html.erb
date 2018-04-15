@@ -15,19 +15,21 @@
   <tr>
     <td>by <%= tweet.user.name %></td>
   </tr>
-  <tr>
-    <% if tweet.user_id == current_user.id %>
-      <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, class: "btn btn-info" %></td>
-      <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete,data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></td>
+  <% if logged_in? %>
+    <tr>
+      <% if tweet.user_id == current_user.id %>
+        <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, class: "btn btn-info" %></td>
+        <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete,data: { confirm: '本当に削除していいですか？' }, class: "btn btn-danger" %></td>
+        <% end %>
+    </tr>
+    <tr>
+      <% if current_user.favorites.find_by(tweet_id: tweet.id) %>
+        <td><%= link_to 'お気に入り解除する', favorite_path(tweet_id: tweet.id, id: tweet.id), method: :delete, class: 'btn btn-danger' %></td>
+      <% else %>
+        <td><%= link_to 'お気に入りする', favorites_path(tweet_id: tweet.id), method: :post, class: 'btn btn-primary' %></td>
       <% end %>
-  </tr>
-  <tr>
-    <% if current_user.favorites.find_by(tweet_id: tweet.id) %>
-      <td><%= link_to 'お気に入り解除する', favorite_path(tweet_id: tweet.id, id: tweet.id), method: :delete, class: 'btn btn-danger' %></td>
-    <% else %>
-      <td><%= link_to 'お気に入りする', favorites_path(tweet_id: tweet.id), method: :post, class: 'btn btn-primary' %></td>
-    <% end %>
-  </tr>
+    </tr>
+  <% end %>
   <tr>
     <td>　</td>
   </tr>
