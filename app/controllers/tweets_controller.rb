@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      TweetMailer.tweet_mail(@tweet).deliver
+      TweetMailer.tweet_mail(@tweet, current_user).deliver
       redirect_to tweets_path, notice:"ツイートを書き込みました！"
     else
       render 'new'

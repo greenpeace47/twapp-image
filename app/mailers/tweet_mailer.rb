@@ -1,7 +1,8 @@
 class TweetMailer < ApplicationMailer
-  def tweet_mail(tweet)
+  def tweet_mail(tweet, user)
    @tweet = tweet
+   @user = user
 
-   mail to: current_user.email, subject: @tweet.content
+   mail to: @user.email, subject: @tweet.content
   end
 end
